@@ -44,6 +44,7 @@ FOREIGN KEY (dealershipID) REFERENCES Dealerships(dealershipID),
 FOREIGN KEY (VIN) REFERENCES Vehicle(VIN)
 );
 
+
 INSERT INTO Dealerships (dealershipName, address, phoneNumber)
 VALUES ("S & M Used Cars", "823 Halazia Drive", "812-822-6282");
 
@@ -54,27 +55,43 @@ INSERT INTO Dealerships (dealershipName, address, phoneNumber)
 VALUES ("Matz Mazda Mall", "127 Halla Halla Landing", "342-220-1240");
 
 INSERT INTO Vehicle (VIN, yearOfVehicle, make, model, vehicleType, color, odometer, price)
-VALUES ("1HGCM82633A123456", 2003, "Honda", "Accord", "Sedan", "Silver", 125000, 6500);
+VALUES (2, "1HGCM82633A123456", 2003, "Honda", "Accord", "Sedan", "Silver", 125000, 6500);
 
 INSERT INTO Vehicle (VIN, yearOfVehicle, make, model, vehicleType, color, odometer, price)
-VALUES ("5LMFU27588LJ12536", 2008, "Lincoln", "Navigator", "SUV", "Black", 90500, 15000);
+VALUES (3, "5LMFU27588LJ12536", 2008, "Lincoln", "Navigator", "SUV", "Black", 90500, 15000);
 
 INSERT INTO Vehicle (VIN, yearOfVehicle, make, model, vehicleType, color, odometer, price)
-VALUES ("1G1ZE5ST3HF123789", 2017, "Chevrolet", "Malibu", "Sedan", "Blue", 35200, 18500);
+VALUES ("2, 1G1ZE5ST3HF123789", 2017, "Chevrolet", "Malibu", "Sedan", "Blue", 35200, 18500);
 
 INSERT INTO Vehicle (VIN, yearOfVehicle, make, model, vehicleType, color, odometer, price)
-VALUES ("WAULF78KX9N012345", 2009, "Audi", "A4", "Sedan", "White", 70800, 11200);
+VALUES ("1, WAULF78KX9N012345", 2009, "Audi", "A4", "Sedan", "White", 70800, 11200);
 
 INSERT INTO Vehicle (VIN, yearOfVehicle, make, model, vehicleType, color, odometer, price)
-VALUES ("1C4PJMDS4FW512345", 2015, "Jeep", "Cherokee", "SUV", "Green", 47300, 20800);
+VALUES ("3, 1C4PJMDS4FW512345", 2015, "Jeep", "Cherokee", "SUV", "Green", 47300, 20800);
 
 INSERT INTO Vehicle (VIN, yearOfVehicle, make, model, vehicleType, color, odometer, price)
-VALUES ("1FTFW1E11CFB12345", 2012, "Ford", "F-150", "Truck", "Black", 82400, 17000);
+VALUES (1, "1FTFW1E11CFB12345", 2012, "Ford", "F-150", "Truck", "Black", 82400, 17000);
 
 INSERT INTO salesContract (customerLastName, dateOfContract)
 VALUES ("Vargas", "06/15/2019");
 
 INSERT INTO salesContract (customerLastName, dateOfContract)
 VALUES ("Boyd", "07/25/2019");
+
+INSERT INTO Inventory (dealershipID, VIN)
+VALUES
+(3, "1C4PJMDS4FW512345"),
+(1, "1FTFW1E11CFB12345"),
+(2, "1G1ZE5ST3HF123789"),
+(2, "1HGCM82633A123456"),
+(3, "5LMFU27588LJ12536"),
+(1, "WAULF78KX9N012345");
+
+-- this is the updates 
+SET SQL_SAFE_UPDATES=0;
+UPDATE Vehicle
+SET dealershipID = 2
+WHERE VIN = "1HGCM82633A123456";
+SET SQL_SAFE_UPDATES=1;
 
 
