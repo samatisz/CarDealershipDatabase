@@ -16,3 +16,5 @@ INNER JOIN
     Dealerships d ON v.dealershipID = d.dealershipID
 WHERE 
     d.dealershipID = 3;  
+    
+    -- only two vehicles are located at dealership 3, Matz Mazda Mall
